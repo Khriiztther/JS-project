@@ -6,7 +6,7 @@ There will be a score tracker and the result will be announced every time
 
 ## How it works 
 
-- The player choses between 3 buttons: Rock, Paper, Scissors.
+- The player choses between 3 buttons: Rock, Paper, Scissors
 - The computer randomly picks one of the 3 options
 - The game compares the choices and decides the winner based on the rules:
  *Rock beats scissors
@@ -16,4 +16,7 @@ There will be a score tracker and the result will be announced every time
 
 - The result of the round is shown on screen
 - The score is updated every round
- 
+- There will be a reset button to restart the score 
+
+## How I'm doing it 
+
