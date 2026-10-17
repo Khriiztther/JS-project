@@ -9,10 +9,10 @@ There will be a score tracker and the result will be announced every time
 - The player choses between 3 buttons: Rock, Paper, Scissors
 - The computer randomly picks one of the 3 options
 - The game compares the choices and decides the winner based on the rules:
- Rock beats scissors
- Scissors beats paper
- Paper beats rock
- Same choice will result in a tie
+1. Rock beats scissors
+2. Scissors beats paper
+3. Paper beats rock
+4. Same choice will result in a tie
 
 - The result of the round is shown on screen
 - The score is updated every round
