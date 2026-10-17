@@ -9,10 +9,10 @@ There will be a score tracker and the result will be announced every time
 - The player choses between 3 buttons: Rock, Paper, Scissors
 - The computer randomly picks one of the 3 options
 - The game compares the choices and decides the winner based on the rules:
- *Rock beats scissors
- *Scissors beats paper
- *Paper beats rock
- *Same choice will result in a tie
+ Rock beats scissors
+ Scissors beats paper
+ Paper beats rock
+ Same choice will result in a tie
 
 - The result of the round is shown on screen
 - The score is updated every round
@@ -20,3 +20,10 @@ There will be a score tracker and the result will be announced every time
 
 ## How I'm doing it 
 
+- The layout will be written in HTML
+- The Style will be written in CSS
+- The game logic will be written in JavaScript
+
+## Goals
+
+- Learn JavaScript basics by building a simple interactive game 
