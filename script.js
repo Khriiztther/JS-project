@@ -10,3 +10,16 @@ function getComputerChoice() {
     return options[randomIndex];
 }
 
+function getWinner(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return "tie";
+    }
+    if ((playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        return "player";
+    }
+    return "computer";
+}
+
