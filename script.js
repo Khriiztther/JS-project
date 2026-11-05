@@ -26,12 +26,6 @@ function getWinner(playerChoice, computerChoice) {
     return "computer";
 }
 
-choiceButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        playRound(button.dataset.choice);
-    });
-});
-
 function playRound(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
@@ -54,6 +48,14 @@ function playRound(playerChoice) {
     }
 
 }
+
+choiceButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        playRound(button.dataset.choice);
+    });
+});
+
+
 
 const resetButton = document.getElementById("reset");
 
