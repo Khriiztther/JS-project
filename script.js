@@ -26,3 +26,31 @@ function getWinner(playerChoice, computerChoice) {
     return "computer";
 }
 
+choiceButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        console.log("Clicked", button.dataset.choice);
+    });
+});
+
+function playerRound(playerChoice) {
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(playerChoice, computerChoice);
+
+    if (winner === "player") {
+        playerScore = playerScore + 1;
+    } else if (winner === "computer") {
+        computerScore = computerScore + 1;
+    }
+
+    playerScoreEl.textContent = playerScore;
+    computerScoreEl.textContent = computerScore;
+
+    if (winner === "tie") {
+        resultEl.textContent = "It's a Tie!";
+    } else if (winner === "player") {
+        resultEl.textContent = "Player wins!";
+    } else {
+        resultEl.textContent = "Computer wins!";
+    }
+
+}
