@@ -1,4 +1,7 @@
-console.log("Js is working");
+const playerScoreEl = document.getElementById("player-score");
+const computerScoreEl = document.getElementById("computer-score");
+const resultEl = document.getElementById("result");
+const choiceButtons = document.querySelectorAll(".choice");
 
 let playerScore = 0;
 let computerScore = 0;
