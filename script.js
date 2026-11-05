@@ -1,10 +1,10 @@
+let playerScore = 0;
+let computerScore = 0;
+
 const playerScoreEl = document.getElementById("player-score");
 const computerScoreEl = document.getElementById("computer-score");
 const resultEl = document.getElementById("result");
 const choiceButtons = document.querySelectorAll(".choice");
-
-let playerScore = 0;
-let computerScore = 0;
 
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
@@ -28,11 +28,11 @@ function getWinner(playerChoice, computerChoice) {
 
 choiceButtons.forEach(button => {
     button.addEventListener("click", () => {
-        console.log("Clicked", button.dataset.choice);
+        playRound(button.dataset.choice);
     });
 });
 
-function playerRound(playerChoice) {
+function playRound(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
 
@@ -54,3 +54,13 @@ function playerRound(playerChoice) {
     }
 
 }
+
+const resetButton = document.getElementById("reset");
+
+resetButton.addEventListener("click", () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreEl.textContent = "0";
+    computerScoreEl.textContent = "0";
+    resultEl.textContent = "Make your choice";
+});
