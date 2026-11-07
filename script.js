@@ -7,7 +7,7 @@ const resultEl = document.getElementById("result");
 const choiceButtons = document.querySelectorAll(".choice");
 
 function getComputerChoice() {
-    const options = ["rock", "paper", "scissors"];
+    const options = ["Rock", "Paper", "Scissors"];
     const randomNumber = Math.random();
     const randomIndex = Math.floor(randomNumber * 3);
     return options[randomIndex];
@@ -17,17 +17,15 @@ function getWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return "tie";
     }
-    if ((playerChoice === "rock" && computerChoice === "scissors") ||
-        (playerChoice === "paper" && computerChoice === "rock") ||
-        (playerChoice === "scissors" && computerChoice === "paper")
+    if ((playerChoice === "Rock" && computerChoice === "Scissors") ||
+        (playerChoice === "Paper" && computerChoice === "Rock") ||
+        (playerChoice === "Scissors" && computerChoice === "Paper")
     ) {
         return "player";
     }
     return "computer";
 }
 
-
-const choicesText = "You: ${playerChoice} · Computer: ${} "
 function playRound(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
@@ -41,14 +39,17 @@ function playRound(playerChoice) {
     playerScoreEl.textContent = playerScore;
     computerScoreEl.textContent = computerScore;
 
+    const choicesText = `You: ${playerChoice} - Computer: ${computerChoice}`;
+    let outcomeText;
     if (winner === "tie") {
-        resultEl.textContent = "It's a Tie!";
+        outcomeText = "It's a Tie!";
     } else if (winner === "player") {
-        resultEl.textContent = "Player wins!";
+        outcomeText = "You win!";
     } else {
-        resultEl.textContent = "Computer wins!";
+        outcomeText = "Computer wins!"
     }
 
+    resultEl.textContent = choicesText + " - " + outcomeText;
 }
 
 choiceButtons.forEach(button => {
