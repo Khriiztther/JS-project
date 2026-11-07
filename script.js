@@ -64,5 +64,5 @@ resetButton.addEventListener("click", () => {
     computerScore = 0;
     playerScoreEl.textContent = "0";
     computerScoreEl.textContent = "0";
-    resultEl.textContent = "Make your choice";
+    resultEl.textContent = "Make your choice!";
 });

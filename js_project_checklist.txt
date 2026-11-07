@@ -1,0 +1,10 @@
+□ A heading
+□ Two score displays (player, computer)
+□ Three buttons (rock, paper, scissors)
+□ A result area to show what happened
+□ A reset button
+□ JS: computer picks randomly
+□ JS: compare choices, decide winner
+□ JS: update the score
+□ JS: update the result text
+□ JS: reset everything
