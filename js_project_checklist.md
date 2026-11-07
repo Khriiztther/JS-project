@@ -24,11 +24,11 @@
 
 **JS Show Choices**
 
-□ Template literal building choicesText
+~~□ Template literal building choicesText~~
 
-□ outcomeText decided by if/else
+~~□ outcomeText decided by if/else~~
 
-□ resultEl.textContent shows both choices + outcome
+~~□ resultEl.textContent shows both choices + outcome~~
 
 
 
