@@ -46,13 +46,13 @@
 
 **JS First to 5**
 
-□ gameOver flag declared
+~~□ gameOver flag declared~~
 
-□ if (gameOver) return; at top of playRound
+~~□ if (gameOver) return; at top of playRound~~
 
-□ Match-win check at end of playRound (player ≥ 5, computer ≥ 5)
+~~□ Match-win check at end of playRound (player ≥ 5, computer ≥ 5)~~
 
-□ gameOver = false in reset handler
+~~□ gameOver = false in reset handler~~
 
 
 

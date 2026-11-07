@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let gameOver = false;
 
 const playerScoreEl = document.getElementById("player-score");
 const computerScoreEl = document.getElementById("computer-score");
@@ -31,6 +32,7 @@ function getWinner(playerChoice, computerChoice) {
 }
 
 function playRound(playerChoice) {
+    if (gameOver) return;
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
 
@@ -72,6 +74,15 @@ function playRound(playerChoice) {
             computerButton.classList.remove("win", "lose");
         }, 200);
     }
+
+    if (playerScore >= 5) {
+        gameOver = true;
+        resultEl.textContent = "You won the match 5 to " + computerScore + "!";
+    } else if (computerScore >= 5) {
+        gameOver = true;
+        resultEl.textContent = "Computer won the match 5 to " +
+            playerScore + "!";
+    }
 }
 
 choiceButtons.forEach(button => {
@@ -87,6 +98,7 @@ const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", () => {
     playerScore = 0;
     computerScore = 0;
+    gameOver = false;
     playerScoreEl.textContent = "0";
     computerScoreEl.textContent = "0";
     resultEl.textContent = "Make your choice!";
