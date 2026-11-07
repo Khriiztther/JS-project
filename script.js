@@ -6,6 +6,10 @@ const computerScoreEl = document.getElementById("computer-score");
 const resultEl = document.getElementById("result");
 const choiceButtons = document.querySelectorAll(".choice");
 
+function getButtonByChoice(choice) {
+    return document.querySelector(`button[data-choice="${choice}"`);
+}
+
 function getComputerChoice() {
     const options = ["Rock", "Paper", "Scissors"];
     const randomNumber = Math.random();
@@ -50,6 +54,24 @@ function playRound(playerChoice) {
     }
 
     resultEl.textContent = choicesText + " - " + outcomeText;
+
+    if (winner !== "tie") {
+        const playerButton = getButtonByChoice(playerChoice);
+        const computerButton = getButtonByChoice(computerChoice);
+
+        if (winner === "player") {
+            playerButton.classList.add("win");
+            computerButton.classList.add("lose");
+        } else {
+            playerButton.classList.add("lose");
+            computerButton.classList.add("win");
+        }
+
+        setTimeout(() => {
+            playerButton.classList.remove("win", "lose");
+            computerButton.classList.remove("win", "lose");
+        }, 200);
+    }
 }
 
 choiceButtons.forEach(button => {

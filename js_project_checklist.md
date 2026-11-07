@@ -34,11 +34,11 @@
 
 **JS Highlight Buttons**
 
-□ getButtonByChoice(choice) helper
+~~□ getButtonByChoice(choice) helper~~
 
-□ classList.add("win"/"lose") on correct buttons
+~~□ classList.add("win"/"lose") on correct buttons~~
 
-□ setTimeout with 200ms to classList.remove
+~~□ setTimeout with 200ms to classList.remove~~
 
 □ Optional: clearTimeout guard against rapid clicks
 
