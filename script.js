@@ -6,6 +6,26 @@ const playerScoreEl = document.getElementById("player-score");
 const computerScoreEl = document.getElementById("computer-score");
 const resultEl = document.getElementById("result");
 const choiceButtons = document.querySelectorAll(".choice");
+const resetButton = document.getElementById("reset");
+
+function saveScores() {
+    localStorage.setItem("rpsPlayerScore", playerScore);
+    localStorage.setItem("rpsComputerScore", computerScore);
+    localStorage.setItem("rpsGameOver", gameOver);
+}
+
+function loadScores() {
+    const savedPlayer = localStorage.getItem("rpsPlayerScore");
+    const savedComputer = localStorage.getItem("rpsComputerScore");
+    const savedGameOver = localStorage.getItem("rpsGameOver");
+
+    if (savedPlayer !== null) playerScore = Number(savedPlayer);
+    if (savedComputer !== null) computerScore = Number(savedComputer);
+    if (savedGameOver === "true") gameOver = true;
+
+    playerScoreEl.textContent = playerScore;
+    computerScoreEl.textContent = computerScore;
+}
 
 function getButtonByChoice(choice) {
     return document.querySelector(`button[data-choice="${choice}"`);
@@ -45,6 +65,8 @@ function playRound(playerChoice) {
     playerScoreEl.textContent = playerScore;
     computerScoreEl.textContent = computerScore;
 
+    saveScores();
+
     const choicesText = `You: ${playerChoice} - Computer: ${computerChoice}`;
     let outcomeText;
     if (winner === "tie") {
@@ -78,10 +100,12 @@ function playRound(playerChoice) {
     if (playerScore >= 5) {
         gameOver = true;
         resultEl.textContent = "You won the match 5 to " + computerScore + "!";
+        saveScores();
     } else if (computerScore >= 5) {
         gameOver = true;
         resultEl.textContent = "Computer won the match 5 to " +
             playerScore + "!";
+        saveScores();
     }
 }
 
@@ -93,7 +117,7 @@ choiceButtons.forEach(button => {
 
 
 
-const resetButton = document.getElementById("reset");
+
 
 resetButton.addEventListener("click", () => {
     playerScore = 0;
@@ -102,4 +126,7 @@ resetButton.addEventListener("click", () => {
     playerScoreEl.textContent = "0";
     computerScoreEl.textContent = "0";
     resultEl.textContent = "Make your choice!";
+    saveScores();
 });
+
+loadScores();
