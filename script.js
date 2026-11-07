@@ -26,6 +26,8 @@ function getWinner(playerChoice, computerChoice) {
     return "computer";
 }
 
+
+const choicesText = "You: ${playerChoice} · Computer: ${} "
 function playRound(playerChoice) {
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
