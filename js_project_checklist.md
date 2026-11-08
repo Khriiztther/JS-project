@@ -102,21 +102,21 @@
 
 **JavaScript**
 
-□ Declare let targetScore = 5; at top with other state
+~~□ Declare let targetScore = 5; at top with other state~~
 
-□ Replace both hardcoded >= 5 checks in playRound with >= targetScore
+~~□ Replace both hardcoded >= 5 checks in playRound with >= targetScore~~
 
-□ Add DOM reference for mode buttons and target label
+~~□ Add DOM reference for mode buttons and target label~~
 
-□ Write a setMode(newTarget) function that updates targetScore, updates the label, resets the game
+~~□ Write a setMode(newTarget) function that updates targetScore, updates the label, resets the game~~
 
-□ Wire click listeners on mode buttons calling setMode
+~~□ Wire click listeners on mode buttons calling setMode~~
 
-□ Highlight the active mode button (add/remove an active class)
+~~□ Highlight the active mode button (add/remove an active class)~~
 
-□ Update match-win messages to say "first to {targetScore}" instead of "5"
+~~□ Update match-win messages to say "first to {targetScore}" instead of "5"~~
 
-□ Make reset respect targetScore (reset clears scores but keeps chosen mode)
+~~□ Make reset respect targetScore (reset clears scores but keeps chosen mode)~~
 
 **CSS**
 
