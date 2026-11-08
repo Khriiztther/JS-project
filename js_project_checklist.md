@@ -90,7 +90,7 @@
 
 ~~□ No red errors in browser console (F12)~~
 
-HTML
+**HTML**
 
 □ Add a mode selector area (two buttons: "First to 3" and "First to 5")
 
@@ -100,7 +100,7 @@ HTML
 
 □ Add a visible label showing current target (e.g. "Playing to: 5")
 
-JavaScript
+**JavaScript**
 
 □ Declare let targetScore = 5; at top with other state
 
@@ -118,13 +118,13 @@ JavaScript
 
 □ Make reset respect targetScore (reset clears scores but keeps chosen mode)
 
-CSS
+**CSS**
 
 □ Style .mode-btn (secondary button style)
 
 □ Style .mode-btn.active to show which mode is selected
 
-Testing
+**Testing**
 
 □ Default mode is "First to 5"
 
