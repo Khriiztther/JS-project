@@ -1,12 +1,17 @@
 let playerScore = 0;
 let computerScore = 0;
 let gameOver = false;
+let targetScore = 5;
 
 const playerScoreEl = document.getElementById("player-score");
 const computerScoreEl = document.getElementById("computer-score");
 const resultEl = document.getElementById("result");
 const choiceButtons = document.querySelectorAll(".choice");
 const resetButton = document.getElementById("reset");
+const targetLabelEL = document.getElementById("target-label");
+const modeButtons = document.querySelectorAll(".mode-button");
+
+
 
 function saveScores() {
     localStorage.setItem("rpsPlayerScore", playerScore);
@@ -25,6 +30,30 @@ function loadScores() {
 
     playerScoreEl.textContent = playerScore;
     computerScoreEl.textContent = computerScore;
+}
+
+function setMode(newTarget) {
+    targetScore = newTarget;
+
+    playerScore = 0;
+    computerScore = 0;
+    gameOver = false;
+
+    playerScoreEl.textContent = "0";
+    computerScoreEl.textContent = "0";
+    targetLabelEL.textContent = targetScore;
+    resultEl.textContent = "First to " + targetScore + "! - Make your choice!";
+
+    modeButtons.forEach(button => {
+        const buttonTarget = Number(button.dataset.target);
+        if (buttonTarget === targetScore) {
+            button.classList.add("active");
+        } else {
+            button.classList.remove("active");
+        }
+    });
+
+    if (typeof saveScores === "function") saveScores();
 }
 
 function getButtonByChoice(choice) {
@@ -97,13 +126,14 @@ function playRound(playerChoice) {
         }, 200);
     }
 
-    if (playerScore >= 5) {
+    if (playerScore >= targetScore) {
         gameOver = true;
-        resultEl.textContent = "You won the match 5 to " + computerScore + "!";
+        resultEl.textContent = "You won the match " + targetScore
+            + " to " + computerScore + "!";
         saveScores();
-    } else if (computerScore >= 5) {
+    } else if (computerScore >= targetScore) {
         gameOver = true;
-        resultEl.textContent = "Computer won the match 5 to " +
+        resultEl.textContent = "Computer won the match " + targetScore + " to " +
             playerScore + "!";
         saveScores();
     }
@@ -116,7 +146,12 @@ choiceButtons.forEach(button => {
 });
 
 
-
+modeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const newTarget = Number(button.dataset.target);
+        setMode(newTarget);
+    });
+});
 
 
 resetButton.addEventListener("click", () => {
