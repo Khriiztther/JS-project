@@ -92,13 +92,13 @@
 
 **HTML**
 
-□ Add a mode selector area (two buttons: "First to 3" and "First to 5")
+~~□ Add a mode selector area (two buttons: "First to 3" and "First to 5")~~
 
-□ Give each mode button a data-target attribute (3 or 5)
+~~□ Give each mode button a data-target attribute (3 or 5)~~
 
-□ Give mode buttons a shared class (e.g. mode-btn)
+~~□ Give mode buttons a shared class (e.g. mode-btn)~~
 
-□ Add a visible label showing current target (e.g. "Playing to: 5")
+~~□ Add a visible label showing current target (e.g. "Playing to: 5")~~
 
 **JavaScript**
 
@@ -120,9 +120,9 @@
 
 **CSS**
 
-□ Style .mode-btn (secondary button style)
+~~□ Style .mode-btn (secondary button style)~~
 
-□ Style .mode-btn.active to show which mode is selected
+~~□ Style .mode-btn.active to show which mode is selected~~
 
 **Testing**
 
