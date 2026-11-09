@@ -17,19 +17,46 @@ function saveScores() {
     localStorage.setItem("rpsPlayerScore", playerScore);
     localStorage.setItem("rpsComputerScore", computerScore);
     localStorage.setItem("rpsGameOver", gameOver);
+    localStorage.setItem("rpsTargetScore", targetScore);
 }
 
 function loadScores() {
     const savedPlayer = localStorage.getItem("rpsPlayerScore");
     const savedComputer = localStorage.getItem("rpsComputerScore");
     const savedGameOver = localStorage.getItem("rpsGameOver");
+    const savedTargetScore = localStorage.getItem("rpsTargetScore");
 
     if (savedPlayer !== null) playerScore = Number(savedPlayer);
     if (savedComputer !== null) computerScore = Number(savedComputer);
     if (savedGameOver === "true") gameOver = true;
+    if (savedTargetScore !== null) targetScore = Number(savedTargetScore);
 
     playerScoreEl.textContent = playerScore;
     computerScoreEl.textContent = computerScore;
+    targetLabelEL.textContent = targetScore;
+
+
+    modeButtons.forEach(button => {
+        const buttonTarget = Number(button.dataset.target);
+        if (buttonTarget === targetScore) {
+            button.classList.add("active");
+        } else {
+            button.classList.remove("active");
+        }
+    });
+
+    if (gameOver) {
+        if (playerScore >= targetScore) {
+            resultEl.textContent = "You won the match " + targetScore + " to " +
+                computerScore + "!";
+        } else {
+            resultEl.textContent = "Computer won the match " + targetScore +
+                " to " + playerScore + "!";
+        }
+    } else {
+        resultEl.textContent = "First to " + targetScore +
+            " wins! - Make your choice!";
+    }
 }
 
 function setMode(newTarget) {
@@ -53,7 +80,7 @@ function setMode(newTarget) {
         }
     });
 
-    if (typeof saveScores === "function") saveScores();
+    saveScores();
 }
 
 function getButtonByChoice(choice) {
@@ -150,6 +177,7 @@ modeButtons.forEach(button => {
     button.addEventListener("click", () => {
         const newTarget = Number(button.dataset.target);
         setMode(newTarget);
+        saveScores();
     });
 });
 
