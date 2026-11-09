@@ -156,25 +156,25 @@ CSS
 
 **JavaScript**
 
-□ Add a let isRevealing = false; flag to block input during animation
+~~□ Add a let isRevealing = false; flag to block input during animation~~
 
-□ Extract round logic into a finishRound(playerChoice, computerChoice) function
+~~□ Extract round logic into a finishRound(playerChoice, computerChoice) function~~
 
-□ Modify playRound to: pick computer choice → show "..." → wait 500ms → call finishRound
+~~□ Modify playRound to: pick computer choice → show "..." → wait 500ms → call finishRound~~
 
-□ Block button clicks while isRevealing === true
+~~□ Block button clicks while isRevealing === true~~
 
-□ Reset isRevealing = false at the end of finishRound
+~~□ Reset isRevealing = false at the end of finishRound~~
 
 **Testing**
 
-□ Click a button → "..." appears immediately
+~~□ Click a button → "..." appears immediately~~
 
-□ After \~500ms, actual result appears
+~~□ After \~500ms, actual result appears~~
 
-□ Rapid clicking during animation does nothing
+~~□ Rapid clicking during animation does nothing~~
 
-□ Game over screen doesn't get covered by "..." if match ends
+~~□ Game over screen doesn't get covered by "..." if match ends~~
 
-□ Reset button works even mid-animation
+~~□ Reset button works even mid-animation~~
 
