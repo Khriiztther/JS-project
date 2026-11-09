@@ -144,15 +144,15 @@
 
 **HTML**
 
-□ Add a <div id="reveal-area"> (or reuse #result — see notes) to hold the animated text
+~~□ Add a <div id="reveal-area"> (or reuse #result — see notes) to hold the animated text~~
 
-□ Nothing else needed — the animation uses existing elements
+~~□ Nothing else needed — the animation uses existing elements~~
 
-CSS
+~~CSS~~
 
-□ Add a .reveal-pulse class for a subtle animation (optional)
+~~□ Add a .reveal-pulse class for a subtle animation (optional)~~
 
-□ Ensure #result has a min-height so text doesn't jump
+~~□ Ensure #result has a min-height so text doesn't jump~~
 
 **JavaScript**
 
