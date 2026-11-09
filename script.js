@@ -60,6 +60,8 @@ function loadScores() {
         resultEl.textContent = "First to " + targetScore +
             " wins! - Make your choice!";
     }
+
+    saveScores();
 }
 
 function setMode(newTarget) {
