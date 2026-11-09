@@ -2,6 +2,9 @@ let playerScore = 0;
 let computerScore = 0;
 let gameOver = false;
 let targetScore = 5;
+let isRevealing = false;
+let revealTimerId = false;
+let clearHighlightTimer = null;
 
 const playerScoreEl = document.getElementById("player-score");
 const computerScoreEl = document.getElementById("computer-score");
@@ -107,38 +110,26 @@ function getWinner(playerChoice, computerChoice) {
     return "computer";
 }
 
-function playRound(playerChoice) {
-    if (gameOver) return;
-    const computerChoice = getComputerChoice();
+function finishRound(playerChoice, computerChoice) {
     const winner = getWinner(playerChoice, computerChoice);
 
-    if (winner === "player") {
-        playerScore = playerScore + 1;
-    } else if (winner === "computer") {
-        computerScore = computerScore + 1;
-    }
+    if (winner === "player") playerScore++;
+    else if (winner === "computer") computerScore++;
 
     playerScoreEl.textContent = playerScore;
     computerScoreEl.textContent = computerScore;
 
-    saveScores();
-
-    const choicesText = `You: ${playerChoice} - Computer: ${computerChoice}`;
+    const choicesText = `You: ${playerChoice} vs Computer: ${computerChoice}`;
     let outcomeText;
-    if (winner === "tie") {
-        outcomeText = "It's a Tie!";
-    } else if (winner === "player") {
-        outcomeText = "You win!";
-    } else {
-        outcomeText = "Computer wins!"
-    }
+    if (winner === "tie") outcomeText = "It's a Tie!";
+    else if (winner === "player") outcomeText = "You win!";
+    else outcomeText = "Computer wins!";
 
     resultEl.textContent = choicesText + " - " + outcomeText;
 
     if (winner !== "tie") {
         const playerButton = getButtonByChoice(playerChoice);
         const computerButton = getButtonByChoice(computerChoice);
-
         if (winner === "player") {
             playerButton.classList.add("win");
             computerButton.classList.add("lose");
@@ -146,24 +137,45 @@ function playRound(playerChoice) {
             playerButton.classList.add("lose");
             computerButton.classList.add("win");
         }
-
-        setTimeout(() => {
+        clearTimeout(clearHighlightTimer);
+        clearHighlightTimer = setTimeout(() => {
             playerButton.classList.remove("win", "lose");
             computerButton.classList.remove("win", "lose");
         }, 200);
     }
 
+    saveScores();
+
     if (playerScore >= targetScore) {
         gameOver = true;
-        resultEl.textContent = "You won the match " + targetScore
-            + " to " + computerScore + "!";
-        saveScores();
+        resultEl.textContent = "You won the match " + targetScore +
+            " to " + computerScore + "!";
     } else if (computerScore >= targetScore) {
         gameOver = true;
-        resultEl.textContent = "Computer won the match " + targetScore + " to " +
-            playerScore + "!";
+        resultEl.textContent = "Computer won the match " + targetScore +
+            " to " + playerScore + "!";
         saveScores();
     }
+
+    isRevealing = false;
+
+}
+
+
+function playRound(playerChoice) {
+    if (gameOver) return;
+    if (isRevealing) return;
+
+    isRevealing = true;
+
+    const computerChoice = getComputerChoice();
+
+    resultEl.textContent = "You: " + playerChoice + " vs Computer: " +
+        computerChoice + "!";
+
+    revealTimerId = setTimeout(() => {
+        finishRound(playerChoice, computerChoice);
+    }, 500);
 }
 
 choiceButtons.forEach(button => {
@@ -183,9 +195,12 @@ modeButtons.forEach(button => {
 
 
 resetButton.addEventListener("click", () => {
+    clearTimeout(revealTimerId);
+    isRevealing = false;
     playerScore = 0;
     computerScore = 0;
     gameOver = false;
+
     playerScoreEl.textContent = "0";
     computerScoreEl.textContent = "0";
     resultEl.textContent = "Make your choice!";
