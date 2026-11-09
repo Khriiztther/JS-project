@@ -114,6 +114,7 @@ function getWinner(playerChoice, computerChoice) {
 
 function finishRound(playerChoice, computerChoice) {
     const winner = getWinner(playerChoice, computerChoice);
+    resultEl.classList.remove("reveal-pulse");
 
     if (winner === "player") playerScore++;
     else if (winner === "computer") computerScore++;
@@ -169,6 +170,8 @@ function playRound(playerChoice) {
     if (isRevealing) return;
 
     isRevealing = true;
+
+    resultEl.classList.add("reveal-pulse");
 
     const computerChoice = getComputerChoice();
 
