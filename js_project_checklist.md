@@ -126,15 +126,15 @@
 
 **Testing**
 
-□ Default mode is "First to 5"
+~~□ Default mode is "First to 5"~~
 
-□ Clicking "First to 3" changes the label and starts a fresh match
+~~□ Clicking "First to 3" changes the label and starts a fresh match~~
 
-□ Playing to 3 ends the match at 3 wins
+~~□ Playing to 3 ends the match at 3 wins~~
 
-□ Switching modes mid-match resets scores and restarts
+~~□ Switching modes mid-match resets scores and restarts~~
 
-□ Active mode button is visually distinct
+~~□ Active mode button is visually distinct~~
 
-□ Reset button preserves current mode (doesn't change back to 5)
+~~□ Reset button preserves current mode (doesn't change back to 5)~~
 
