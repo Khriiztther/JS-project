@@ -44,7 +44,7 @@
 
 
 
-**JS First to 5**
+**NEW FEATURE: JS First to 5**
 
 ~~□ gameOver flag declared~~
 
@@ -137,4 +137,44 @@
 ~~□ Active mode button is visually distinct~~
 
 ~~□ Reset button preserves current mode (doesn't change back to 5)~~
+
+
+
+**New Feature: Animation**
+
+**HTML**
+
+□ Add a <div id="reveal-area"> (or reuse #result — see notes) to hold the animated text
+
+□ Nothing else needed — the animation uses existing elements
+
+CSS
+
+□ Add a .reveal-pulse class for a subtle animation (optional)
+
+□ Ensure #result has a min-height so text doesn't jump
+
+**JavaScript**
+
+□ Add a let isRevealing = false; flag to block input during animation
+
+□ Extract round logic into a finishRound(playerChoice, computerChoice) function
+
+□ Modify playRound to: pick computer choice → show "..." → wait 500ms → call finishRound
+
+□ Block button clicks while isRevealing === true
+
+□ Reset isRevealing = false at the end of finishRound
+
+**Testing**
+
+□ Click a button → "..." appears immediately
+
+□ After \~500ms, actual result appears
+
+□ Rapid clicking during animation does nothing
+
+□ Game over screen doesn't get covered by "..." if match ends
+
+□ Reset button works even mid-animation
 
