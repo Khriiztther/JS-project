@@ -180,7 +180,7 @@ function playRound(playerChoice) {
 
     revealTimerId = setTimeout(() => {
         finishRound(playerChoice, computerChoice);
-    }, 500);
+    }, 1000);
 }
 
 choiceButtons.forEach(button => {
