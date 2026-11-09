@@ -178,3 +178,55 @@
 
 ~~□ Reset button works even mid-animation~~
 
+
+
+**New Feature: Match history
+
+HTML**
+
+□ Add a <ul id="history-list"> below the result area
+
+□ Add a "Clear History" button (id="clear-history")
+
+□ Wrap both in a container with a heading (e.g. "Match History")
+
+**CSS**
+
+□ Style the history list (max height + scroll, spacing, item look)
+
+□ Style each history item (small text, maybe pill/border)
+
+□ Style the clear button
+
+**JavaScript**
+
+□ Declare let roundHistory = \[]; to hold past rounds
+
+□ Grab DOM references for #history-list and #clear-history
+
+□ Write renderHistory() that clears the list and rebuilds it from the array
+
+□ Write addToHistory(playerChoice, computerChoice, winner) that pushes a round object and calls renderHistory
+
+□ Call addToHistory inside finishRound (before the match-over check)
+
+□ Clear roundHistory = \[] and re-render on reset and on mode change
+
+□ Wire up the "Clear History" button
+
+Testing
+
+□ Every played round appears in the list
+
+□ Each entry shows both choices and the outcome
+
+□ List scrolls when it gets long
+
+□ Reset button clears scores and history
+
+□ Switching modes clears history
+
+□ "Clear History" empties the list without touching scores
+
+□ Oldest-first or newest-first order is consistent
+
