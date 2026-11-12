@@ -230,3 +230,5 @@ Testing
 
 □ Oldest-first or newest-first order is consistent
 
+
+server site; application is loaded, the computer ask the server for the answer
